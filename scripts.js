@@ -1,15 +1,14 @@
 const convertButton = document.querySelector(".convert-button")
 const selecionar = document.querySelector(".selecionar-moeda")
 function convertValores() {
-    const inputValor = document.querySelector(".input-valor").value 
-    
+    const inputValor = parseFloat(document.querySelector(".input-valor").value);
     const valor = document.querySelector(".valor")
     const valor1 = document.querySelector(".valor1")
     
     const dolarToday = 4.94
     const euroToday = 6.00
     const libraToday = 6.20
-    const bitcoinToday = 41.000
+    const bitcoinToday = 215.205
     
 
     if (selecionar.value == "dolar") {
@@ -37,12 +36,11 @@ function convertValores() {
     }
 
     if (selecionar.value == "bitcoin") {
-        valor1.innerHTML = new Intl.NumberFormat("en", {
-            style : "currency",
-            currency : "BTC"
-        }) .format(inputValor / bitcoinToday)
-        
-    }
+        valor1.innerHTML = new Intl.NumberFormat("es-SV", { 
+            style: "currency",
+            currency: "BTC",
+        }).format(inputValor / bitcoinToday) + `(${(inputValor/bitcoinToday).toFixed(10)})`;
+      }
 
 
     valor.innerHTML = new Intl.NumberFormat("pt-BR", {
@@ -60,11 +58,13 @@ function changeMoeda(){
 
     const moedaTroca = document.getElementById("moeda-convertida")
     const imagemTroca = document.querySelector(".img")
+    
 
     if (selecionar.value == "dolar") {
     
         moedaTroca.innerHTML = "US$ Dólar americano"
         imagemTroca.src = "./assets/dolar.png"
+       
     }
 
     if (selecionar.value == "euro") {
