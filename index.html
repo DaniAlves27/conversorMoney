@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="imagex/jpg" href="./assets/icone.ico">
+    <title>Money Convert</title>
+</head>
+
+<body>
+    <img class="logo" src="./assets/money.gif" alt="logo">
+
+    <main>
+        <label>
+            Converter <b>de</b>
+            <select>
+                <option>R$ Real Brasileiro</option>
+            </select>
+        </label>
+
+        <label>
+            Converter <b>para</b>
+            <select class="selecionar-moeda">
+                <option value="dolar"> US$ Dólar americano </option>
+                <option value="euro"> € Euro </option>
+                <option value="libra"> £ Libra </option>
+                <option value="bitcoin"> ₿ Bitcoin </option>
+
+            </select>
+        </label>
+
+        <label>
+            Valor
+            <input class="input-valor" placeholder="R$ 100">
+        </label>
+
+        <button class="convert-button"> Converter </button>
+
+        <section>
+            <div class="box">
+                <img src="./assets/brasil.png" alt="Converter">
+                <p class="moeda"> Real </p>
+                <p class="valor"> R$ 0,00 </p>
+            </div>
+
+            <img class="seta" src="./assets/Vector.png">
+
+            <div class="box">
+                <img class="img" src="./assets/dolar.png" alt="Convertido">
+                <p class="moeda" id="moeda-convertida"> Dólar americano </p>
+                <p class="valor1"> US$ 0.00 </p>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+<script src="./scripts.js"></script>
+
+</html>
