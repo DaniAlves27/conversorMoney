@@ -1,7 +1,7 @@
 const convertButton = document.querySelector(".convert-button")
 const selecionar = document.querySelector(".selecionar-moeda")
 function convertValores() {
-    const inputValor = parseFloat(document.querySelector(".input-valor").value);
+    const inputValor = (document.querySelector(".input-valor").value);
     const valor = document.querySelector(".valor")
     const valor1 = document.querySelector(".valor1")
     
@@ -39,7 +39,8 @@ function convertValores() {
         valor1.innerHTML = new Intl.NumberFormat("es-SV", { 
             style: "currency",
             currency: "BTC",
-        }).format(inputValor / bitcoinToday) + `(${(inputValor/bitcoinToday).toFixed(10)})`;
+
+        }).format(inputValor / bitcoinToday) 
       }
 
 
