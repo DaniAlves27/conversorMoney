@@ -9,5 +9,4 @@
   
 <img src="https://github.com/DaniAlves27/conversorMoney/blob/main/assets/Captura%20de%20tela%202024-01-02%20184412.png?raw=true" alt="print-pag"/>
 
-<h3> link para a pagina </h3>
-<a href="https://danialves27.github.io/conversorMoney/"/>
+<a href="https://danialves27.github.io/conversorMoney/"><h3> link para a pagina </h3></a>
