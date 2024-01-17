@@ -11,7 +11,6 @@ function convertValues() {
   const currencyValueConverted = document.querySelector('.currency-value') // Outras moedas
 
   const dolarToday = 5.2
-  const euroToday = 7.0
   
 
 
@@ -23,6 +22,22 @@ function convertValues() {
 
   }
 
+  if (segundoSelect.value == 'real' && primeiroSelect.value == 'real') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(inputCurrencyValue)
+
+  }
+
+  if (segundoSelect.value == 'dolar' && primeiroSelect.value == 'dolar') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(inputCurrencyValue)
+
+  }
+
   if (primeiroSelect.value == 'dolar' && segundoSelect.value == 'real') {
 
     currencyValueConverted.innerHTML = new Intl.NumberFormat('pt-BR', {
@@ -31,21 +46,6 @@ function convertValues() {
     }).format(inputCurrencyValue * 4.78) // valor de 4.78 equivale a um dolar com cada moeda o real terá valor diferente 
     
   }
-
-  if (segundoSelect.value == 'dolar' && primeiroSelect.value == 'euro') {
-    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(inputCurrencyValue / dolarToday)
-
-  }
-
-  if (primeiroSelect.value == 'dolar' && segundoSelect.value == 'euro') {
-
-    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-De', {
-      style: 'currency',
-      currency: 'EUR',
-    }).format(inputCurrencyValue / euroToday)
 
 
   // currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-BR', {
@@ -64,11 +64,7 @@ function formatCurrency() {
     style: 'currency',
     currency: 'BRL',
   }).format(inputCurrencyValue)
-  } else if (primeiroSelect.value == 'euro'){
-    currencyValueToConvert.innerHTML = new Intl.NumberFormat('de-De', {
-    style: 'currency',
-    currency: 'EUR',
-  }).format(inputCurrencyValue)
+  } 
 
 
   
@@ -123,8 +119,7 @@ function changeCurrency() {
 
 }
   convertValues()
-}
-}
+
 primeiroSelect.addEventListener('change', changeCurrency)
 segundoSelect.addEventListener('change', changeCurrency)
 convertButton.addEventListener('click', convertValues)
