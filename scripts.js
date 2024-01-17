@@ -10,8 +10,8 @@ function convertValues() {
   ) // Valor em Real
   const currencyValueConverted = document.querySelector('.currency-value') // Outras moedas
 
-  const dolarToday = 5.2
-  
+  const dolarToday = 5.20
+  const euroToday = 5.35
 
 
   if (segundoSelect.value == 'dolar' && primeiroSelect.value == 'real') {
@@ -47,6 +47,47 @@ function convertValues() {
     
   }
 
+  if (segundoSelect.value == 'euro' && primeiroSelect.value == 'euro') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(inputCurrencyValue)
+
+  }
+
+  if (segundoSelect.value == 'euro' && primeiroSelect.value == 'real') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(inputCurrencyValue / euroToday )
+
+  }
+
+  if (segundoSelect.value == 'real' && primeiroSelect.value == 'euro') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(inputCurrencyValue * euroToday )
+
+  }
+
+  if (segundoSelect.value == 'dolar' && primeiroSelect.value == 'euro') {
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format((inputCurrencyValue / dolarToday) * euroToday )  
+
+  }
+
+  if (primeiroSelect.value == 'dolar' && segundoSelect.value == 'euro') {
+
+    currencyValueConverted.innerHTML = new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format((inputCurrencyValue / euroToday) * dolarToday  )  
+    
+  }
+
 
   // currencyValueToConvert.innerHTML = new Intl.NumberFormat('en-BR', {
   //   style: 'currency',
@@ -64,9 +105,12 @@ function formatCurrency() {
     style: 'currency',
     currency: 'BRL',
   }).format(inputCurrencyValue)
-  } 
-
-
+  } else if (primeiroSelect.value == 'euro'){
+  currencyValueToConvert.innerHTML = new Intl.NumberFormat('de-DE', {
+  style: 'currency',
+  currency: 'EUR',
+}).format(inputCurrencyValue)
+} 
   
 }
 
